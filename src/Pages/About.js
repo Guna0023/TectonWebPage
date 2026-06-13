@@ -1,7 +1,7 @@
 import React from "react";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 import styled from "styled-components";
-import { Info, Title } from "../Styles/Style";
+import { Info } from "../Styles/Style";
 import { ProjectDetails } from "../Components/ProjectDetails";
 import { PageContainer } from "../Styles/Style";
 import {
@@ -12,7 +12,7 @@ import {
   SectionTitle,
   BackButton,
 } from "../Styles/Style";
-import Footer from "./Footer";
+// import Footer from "./Footer";
 
 const Content = styled.p`
   margin: 0 0 28px 0;

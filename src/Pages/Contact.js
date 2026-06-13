@@ -29,16 +29,16 @@ const ContactInfo = styled.section`
   justify-content: center;
 `;
 
-const BrandTitle = styled.h1`
-  font-size: 3.5rem;
-  letter-spacing: -1px;
-  margin-bottom: 1.5rem;
-  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+// const BrandTitle = styled.h1`
+//   font-size: 3.5rem;
+//   letter-spacing: -1px;
+//   margin-bottom: 1.5rem;
+//   font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
-  @media (max-width: 768px) {
-    font-size: 2.5rem;
-  }
-`;
+//   @media (max-width: 768px) {
+//     font-size: 2.5rem;
+//   }
+// `;
 
 const ContactSection = styled.div`
   max-width: 1200px;

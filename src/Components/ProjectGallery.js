@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import React from "react";
+// import { AnimatePresence, motion } from "framer-motion";
 import styled from "styled-components";
-import LandingPage from "./LandingPage";
+// import LandingPage from "./LandingPage";
 import "../App.css";
 import { ProjectDetails } from "./ProjectDetails";
 import {
@@ -18,7 +18,6 @@ import {
   BackButton,
 } from "../Styles/Style";
 import Contact from "../Pages/Contact";
-import Footer from "../Pages/Footer";
 
 const ProjectCard = styled.div`
   display: flex;

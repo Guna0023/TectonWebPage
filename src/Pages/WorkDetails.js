@@ -8,14 +8,8 @@ import {
   FirmName,
   Divider,
   Breadcrumb,
-  SectionTitle,
-  GridContainer,
-  StyledLink,
-  ImageContainer,
-  MainImage,
   GridSubContainer,
 } from "../Styles/Style";
-import Footer from "./Footer";
 
 // --- STYLED COMPONENTS ---
 

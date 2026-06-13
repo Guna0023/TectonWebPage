@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import TDL_LOGO from "../Assets/TDL_LOGO.png";
 import styled from "styled-components";
@@ -19,14 +19,7 @@ const IntroLogo = styled(motion.img)`
 `;
 
 export default function LogoAnimation() {
-  const [moveLogo, setMoveLogo] = useState(false);
   const [introDone, setIntroDone] = useState(false);
-  const [logoMoved, setLogoMoved] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setMoveLogo(true), 1000);
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <>

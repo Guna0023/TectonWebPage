@@ -34,9 +34,9 @@ export default function LogoAnimation() {
             alt="TDL Logo"
             initial={{ x: 0, y: 0, scale: 1 }}
             animate={
-              logoMoved
-                ? { x: "-42vw", y: "-42vh", scale: 0.28 }
-                : { x: 0, y: 0, scale: 1 }
+              // logoMoved
+              //   ? { x: "-42vw", y: "-42vh", scale: 0.28 }
+              { x: 0, y: 0, scale: 1 }
             }
             transition={{ duration: 1.1, ease: "easeInOut" }}
             onAnimationComplete={() => setIntroDone(true)}

@@ -36,9 +36,9 @@ const NavItem = styled(motion.li)`
   cursor: pointer;
 `;
 
-const WorkItem = styled(NavItem)`
-  position: relative;
-`;
+// const WorkItem = styled(NavItem)`
+//   position: relative;
+// `;
 
 const menuVariants = {
   initial: {},

@@ -1,6 +1,5 @@
 import React from "react";
 // import { AnimatePresence, motion } from "framer-motion";
-import styled from "styled-components";
 // import LandingPage from "./LandingPage";
 import "../App.css";
 import { ProjectDetails } from "./ProjectDetails";
@@ -16,22 +15,10 @@ import {
   ImageContainer,
   MainImage,
   BackButton,
+  ProjectTitle,
+  ProjectCard,
 } from "../Styles/Style";
-import Contact from "../Pages/Contact";
-
-const ProjectCard = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-`;
-
-const ProjectTitle = styled.p`
-  margin: 16px 0 0;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #1a1a1a;
-  text-align: left;
-`;
+// import Contact from "../Pages/Contact";
 
 export default function ProjectGallery() {
   return (
@@ -41,7 +28,12 @@ export default function ProjectGallery() {
           <FirmName>TECTON DESIGN LAB</FirmName>
           <Divider />
           <Breadcrumb>{`Home ${window.location.pathname}`}</Breadcrumb>
-          <BackButton to="/">← BACK TO PORTFOLIO</BackButton>
+          <div>
+            <p>Architecture & Interiors </p>
+            <p>Turnkey & Site Supervision</p>
+            <p>Facade & Retrofit</p>
+          </div>
+
           <SectionTitle>Projects</SectionTitle>
           <GridContainer>
             {ProjectDetails.map((project) => (
@@ -51,13 +43,13 @@ export default function ProjectGallery() {
                     <MainImage src={project.mainImage} alt={project.title} />
                   </ImageContainer>
                 </StyledLink>
-                <ProjectTitle>{project.title}</ProjectTitle>
+                <ProjectTitle>{project.id}</ProjectTitle>
               </ProjectCard>
             ))}
           </GridContainer>
         </Container>
       </PageContainer>
-      <Contact />
+      {/* <Contact /> */}
     </>
   );
 }

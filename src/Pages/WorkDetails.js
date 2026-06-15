@@ -26,7 +26,7 @@ const PageWrapper = styled.div`
 
 const BackButton = styled(Link)`
   display: inline-block;
-  margin-bottom: 40px;
+  padding: 10px;
   text-decoration: none;
   color: #666;
   font-size: 0.9rem;
@@ -84,8 +84,7 @@ const ContentBody = styled.div`
 `;
 
 const MainHeading = styled.h1`
-  font-family:
-    Georgia, "Times New Roman", serif; /* Elegant Editorial Serif font */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 2.8rem;
   font-weight: 400;
   line-height: 1.2;
@@ -118,6 +117,9 @@ const WorkDetails = () => {
   // Find project based on React Router path param
   const project = ProjectDetails.find((p) => p.id === projectId);
 
+  // eslint-disable-next-line no-undef
+  const currentPath = globalThis.location?.pathname;
+
   if (!project) {
     return (
       <PageWrapper>
@@ -128,6 +130,7 @@ const WorkDetails = () => {
   }
 
   const {
+    index,
     client,
     location,
     traditionalPlace,
@@ -139,80 +142,83 @@ const WorkDetails = () => {
   } = project.details;
 
   return (
-    <>
-      <PageContainer>
-        <Container>
-          <FirmName>TECTON DESIGN LAB</FirmName>
-          <Divider />
-          <Breadcrumb>{`Home ${window.location.pathname}`}</Breadcrumb>
-          <BackButton to="/">← BACK TO PORTFOLIO</BackButton>
-          <img
-            src={project.mainImage}
-            alt={`${project.title}`}
-            style={{ width: "100%", borderRadius: "8px", marginBottom: "40px" }}
-          />
+    <PageContainer>
+      <Container>
+        <FirmName>TECTON DESIGN LAB</FirmName>
+        <Divider />
+        <Breadcrumb>{`Home ${currentPath}`}</Breadcrumb>
 
-          <LayoutContainer>
-            {/* Left Hand Sidebar Metadata */}
-            <Sidebar>
-              <MetaRow>
-                <MetaLabel>Client</MetaLabel>
-                <MetaValue>{client}</MetaValue>
-              </MetaRow>
+        <img
+          src={project.mainImage}
+          alt={`${project.title}`}
+          style={{ width: "100%", borderRadius: "8px", marginBottom: "40px" }}
+        />
 
-              <MetaRow>
-                <MetaLabel>Location</MetaLabel>
-                <MetaValue>{location}</MetaValue>
-              </MetaRow>
+        <LayoutContainer>
+          {/* Left Hand Sidebar Metadata */}
+          <Sidebar>
+            <MetaRow>
+              <MetaLabel>Client</MetaLabel>
+              <MetaValue>{client}</MetaValue>
+            </MetaRow>
 
-              <MetaRow>
-                <MetaLabel>
-                  Traditional Place Name/ Indigenous Country
-                </MetaLabel>
-                <MetaValue>{traditionalPlace}</MetaValue>
-              </MetaRow>
+            <MetaRow>
+              <MetaLabel>Location</MetaLabel>
+              <MetaValue>{location}</MetaValue>
+            </MetaRow>
 
-              <MetaRow>
-                <MetaLabel>Dates</MetaLabel>
-                <MetaValue>{dates}</MetaValue>
-              </MetaRow>
+            <MetaRow>
+              <MetaLabel>Traditional Place Name/ Indigenous Country</MetaLabel>
+              <MetaValue>{traditionalPlace}</MetaValue>
+            </MetaRow>
 
-              <MetaRow>
-                <MetaLabel>Role</MetaLabel>
-                <MetaValue>{role}</MetaValue>
-              </MetaRow>
+            <MetaRow>
+              <MetaLabel>Dates</MetaLabel>
+              <MetaValue>{dates}</MetaValue>
+            </MetaRow>
 
-              <MetaRow>
-                <MetaLabel>Scope</MetaLabel>
-                <MetaValue>{scope}</MetaValue>
-              </MetaRow>
-            </Sidebar>
+            <MetaRow>
+              <MetaLabel>Role</MetaLabel>
+              <MetaValue>{role}</MetaValue>
+            </MetaRow>
 
-            {/* Right Hand Narrative Content */}
-            <ContentBody>
-              <MainHeading>{project.title}</MainHeading>
+            <MetaRow>
+              <MetaLabel>Scope</MetaLabel>
+              <MetaValue>{scope}</MetaValue>
+            </MetaRow>
+          </Sidebar>
 
-              {paragraphs.map((text, index) => (
-                <DescriptionParagraph key={index}>{text}</DescriptionParagraph>
-              ))}
-            </ContentBody>
-          </LayoutContainer>
-          {subImages && subImages.length > 0 && (
-            <GridSubContainer>
-              {subImages.map((image, index) => (
-                <div key={index}>
-                  <img
-                    style={{ width: "100%", borderRadius: "8px" }}
-                    src={image}
-                    alt={`${project.title} - ${index + 1}`}
-                  />
-                </div>
-              ))}
-            </GridSubContainer>
-          )}
-        </Container>
-      </PageContainer>
-    </>
+          {/* Right Hand Narrative Content */}
+          <ContentBody>
+            <MainHeading>{project.title}</MainHeading>
+
+            {paragraphs.map((text, index, item) => (
+              <DescriptionParagraph key={item.list}>
+                {text}
+              </DescriptionParagraph>
+            ))}
+          </ContentBody>
+        </LayoutContainer>
+        {subImages && subImages.length > 0 && (
+          <GridSubContainer>
+            {subImages.map((image, index, item) => (
+              <div key={item.list}>
+                <img
+                  style={{ width: "100%", borderRadius: "8px" }}
+                  src={image}
+                  alt={`${project.title} - ${index + 1}`}
+                />
+              </div>
+            ))}
+          </GridSubContainer>
+        )}
+        <BackButton to="/">← BACK TO WORKS</BackButton>
+        {/* <BackButton to={`/works/${ProjectDetails[index - 1].id}`}>
+          ← {ProjectDetails[index - 1].id}
+        </BackButton>
+        <BackButton to="/">← Next</BackButton> */}
+      </Container>
+    </PageContainer>
   );
 };
 

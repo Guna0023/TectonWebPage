@@ -129,11 +129,11 @@ const Arrow = styled.span`
 `;
 
 const ContactFormWrapper = styled.section`
-  background-color: #ffffff;
+  background-color: #f5f4f6;
   padding: 3rem;
   border-radius: 12px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
-  border: 1px solid #eaeaea;
+  border: 1px solid #5f5e5e;
 
   @media (max-width: 768px) {
     padding: 2rem 1.5rem;
@@ -216,12 +216,14 @@ const SubmitButton = styled.button`
 `;
 
 export default function Contact() {
+  // eslint-disable-next-line no-undef
+  const currentPath = globalThis.location?.pathname;
   return (
     <PageContainer>
       <Container>
         <FirmName>TECTON DESIGN LAB</FirmName>
         <Divider />
-        <Breadcrumb>{`Home ${window.location.pathname}`}</Breadcrumb>
+        <Breadcrumb>{`Home ${currentPath}`}</Breadcrumb>
         <SectionTitle>Contact us</SectionTitle>
 
         <ContactBody>
@@ -250,6 +252,11 @@ export default function Contact() {
                   <h2>Phone</h2>
                 </ContactLabel>
                 <ContactDetails>
+                  <p>
+                    <ContactLink href="tel:+919443209854">
+                      +91 94432 09854
+                    </ContactLink>
+                  </p>
                   <p>
                     <ContactLink href="tel:+919791403366">
                       +91 97914 03366

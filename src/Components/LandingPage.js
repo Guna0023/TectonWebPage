@@ -1,8 +1,5 @@
 import React from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
 import { ProjectDetails } from "./ProjectDetails";
-import { PageContainer } from "../Styles/Style";
 import {
   Container,
   FirmName,
@@ -13,6 +10,10 @@ import {
   StyledLink,
   ImageContainer,
   MainImage,
+  ProjectTitle,
+  ProjectCard,
+  BackButton,
+  PageContainer,
 } from "../Styles/Style";
 
 // const GridContainer = styled.div`
@@ -64,15 +65,21 @@ const LandingPage = () => {
           <FirmName>TECTON DESIGN LAB</FirmName>
           <Divider />
           <Breadcrumb>{`Home ${window.location.pathname}`}</Breadcrumb>
-          <SectionTitle>Projects</SectionTitle>
+          <SectionTitle>Featured Projects</SectionTitle>
           <GridContainer>
-            {ProjectDetails.map((project) => (
-              <StyledLink to={`/works/${project.id}`} key={project.id}>
-                <ImageContainer>
-                  <MainImage src={project.mainImage} alt={project.title} />
-                </ImageContainer>
-              </StyledLink>
+            {ProjectDetails.filter(
+              (section) => section.MainSection === true,
+            ).map((project) => (
+              <ProjectCard key={project.id}>
+                <StyledLink to={`/works/${project.id}`}>
+                  <ImageContainer>
+                    <MainImage src={project.mainImage} alt={project.title} />
+                  </ImageContainer>
+                </StyledLink>
+                <ProjectTitle>{project.id}</ProjectTitle>
+              </ProjectCard>
             ))}
+            <BackButton to="/project">View All Projects</BackButton>
           </GridContainer>
         </Container>
       </PageContainer>

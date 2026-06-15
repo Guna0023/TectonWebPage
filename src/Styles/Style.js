@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export const PageContainer = styled.div`
   min-height: 100vh;
   width: 100%;
-  background-color: lightyellow;
+  background-color: #fcfcff;
   padding: 7rem;
   display: flex;
   align-items: flex-start;
@@ -28,12 +28,12 @@ export const FirmName = styled.h1`
 export const Divider = styled.hr`
   border: none;
   height: 1px;
-  background: #dcd7cf;
+  background: #5f5e5e;
   margin: 0 0 48px 0;
 `;
 
 export const Breadcrumb = styled.p`
-  margin: 0 0 40px 0;
+  margin: 0 0 20px 0;
   font-size: 0.95rem;
   color: #666;
   letter-spacing: 0.05em;
@@ -41,7 +41,7 @@ export const Breadcrumb = styled.p`
 
 export const SectionTitle = styled.h2`
   margin: 0 0 48px 0;
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   letter-spacing: -1px;
   color: #1a1a1a;
   font-family: Helvetica;
@@ -74,7 +74,7 @@ export const Info = styled.p`
 
 export const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 70px;
   padding: 20px 30px;
   width: 100%;
@@ -87,7 +87,7 @@ export const GridContainer = styled.div`
 
 export const GridSubContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 2%;
   padding: 20px 30px;
   border-radius: 12px;
@@ -118,7 +118,7 @@ export const StyledLink = styled(Link)`
 export const ImageContainer = styled.div`
   width: 100%;
   height: 350px; /* Adjust aspect ratio for your architecture previews */
-  background-color: #f3eded;
+  background-color: #fcfcff;
 `;
 
 export const MainImage = styled.img`
@@ -152,4 +152,24 @@ export const ContactLink = styled.a`
     color: #1a1a1a;
     border-color: #1a1a1a;
   }
+`;
+
+export const ProjectCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
+
+export const ProjectTitle = styled.p`
+  margin: 16px 0 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  text-align: left;
+`;
+
+export const NavItem = styled(motion.li)`
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
 `;

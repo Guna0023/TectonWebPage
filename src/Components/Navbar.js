@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
-import { FirmName, Divider } from "../Styles/Style";
 import TDL_LOGO from "../Assets/TDL_LOGO.png"; // replace with your logo
 
 const Nav = styled.nav`
@@ -11,8 +10,9 @@ const Nav = styled.nav`
   left: 0;
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  gap: 25px;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 700px;
   z-index: 10;
   padding: 20px 40px;
   align-items: center;
@@ -22,7 +22,7 @@ const Nav = styled.nav`
 
 const NavMenu = styled(motion.ul)`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   width: 100%;
   list-style: none;
@@ -68,7 +68,9 @@ const HoverContent = styled(motion.div)`
   top: 100%;
   left: 0;
   width: 100%;
-  background: #faf9da;
+  background: #f5f4f6;
+  // background-color: rgba(245, 244, 246, 0.5);
+  opacity: 0.4;
   text-align: left;
   padding: 70px 30px;
   border-radius: 0 0 10px 10px;
@@ -85,6 +87,17 @@ const LogoImage = styled.img`
   top: 50px;
 `;
 
+const FirmName = styled.h1`
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  margin: 0 0 24px 0;
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: #1a1a1a;
+`;
+
 export default function Navbar() {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -99,20 +112,30 @@ export default function Navbar() {
           onMouseLeave={() => setIsHovered(false)}
         >
           <NavItem variants={itemVariants}>
+            <StyledLink to="/about" onClick={() => setIsHovered(false)}>
+              STUDIO
+            </StyledLink>
+          </NavItem>
+          <NavItem variants={itemVariants}>
             <StyledLink to="/project" onClick={() => setIsHovered(false)}>
-              Works
+              WORKS
+            </StyledLink>
+          </NavItem>
+          <NavItem variants={itemVariants}>
+            <StyledLink to="/Service" onClick={() => setIsHovered(false)}>
+              SERVICES
             </StyledLink>
           </NavItem>
 
           <NavItem variants={itemVariants}>
-            <StyledLink to="/about" onClick={() => setIsHovered(false)}>
-              About Us
+            <StyledLink to="/Process" onClick={() => setIsHovered(false)}>
+              PROCESS
             </StyledLink>
           </NavItem>
 
           <NavItem variants={itemVariants}>
             <StyledLink to="/contact" onClick={() => setIsHovered(false)}>
-              Contact
+              CONTACT
             </StyledLink>
           </NavItem>
         </NavMenu>
@@ -126,10 +149,8 @@ export default function Navbar() {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.1 }}
           >
-            <LogoImage src={TDL_LOGO} alt="Firm Logo" width="150" />
+            <LogoImage src={TDL_LOGO} alt="Firm Logo" width="170" />
             <FirmName>TECTON DESIGN LAB</FirmName>
-            <Divider />
-            <h3>Architecture | Interior | Masterplanning</h3>
           </HoverContent>
         )}
       </AnimatePresence>
